@@ -1,32 +1,40 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "tropicraft",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This mod aims to help new BTA modders.",
+  "name": "Tropicraft",
+  "description": "This is a port of the Tropicraft dimension mod for BTA.",
   "authors": [
-    "Turnip Labs"
+    "Cookie Cakes",
+    "Cojomax99 (original dev)"
   ],
+	"contributors": [
+		"Tropicraft Team (original devs, permission)",
+		"Useless (coding help)"
+	],
   "contact": {
-    "homepage": "",
+    "homepage": "https://github.com/FatherCheese/tropicraft",
+    "issues": "https://github.com/FatherCheese/tropicraft/issues",
     "sources": ""
   },
 
   "license": "CC0-1.0",
-
+  "icon": "assets/tropicraft/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-        "turniplabs.examplemod.ExampleMod"
+      "cookie.tropicraft.Tropicraft"
     ]
   },
   "mixins": [
-      "examplemod.mixins.json"
+    "tropicraft.mixins.json"
   ],
 
   "depends": {
-    "fabricloader": ">=0.13.3"
+    "fabricloader": ">=0.13.3",
+    "halplibe": ">=2.7.0",
+    "terrain-api": ">=1.2.2"
   },
   "suggests": {
   }

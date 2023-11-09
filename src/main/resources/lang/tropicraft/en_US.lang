@@ -1,0 +1,25 @@
+tile.tropicraft.bamboo.name=Bamboo
+tile.tropicraft.bamboo.desc=
+tile.tropicraft.log.palm.name=Palm Log
+tile.tropicraft.log.palm.desc=A log from a palm tree.
+tile.tropicraft.leaves.palm.name=Palm Leaves
+tile.tropicraft.leaves.palm.desc=Leaves from a palm tree.
+tile.tropicraft.leaves.citrus.name=Citrus-Tree Leaves
+tile.tropicraft.leaves.citrus.desc=Leaves from a citrus tree.
+tile.tropicraft.sapling.palm.name=Palm Sapling
+tile.tropicraft.sapling.palm.desc=Plant to grow a palm tree.
+tile.tropicraft.sapling.citrus.name=Citrus-Tree Sapling
+tile.tropicraft.sapling.citrus.desc=Plant to grow a citrus tree.
+
+item.tropicraft.bamboo.name=Bamboo
+item.tropicraft.bamboo.desc=
+item.tropicraft.food.fruit.orange.name=Orange
+item.tropicraft.food.fruit.orange.desc=An orange citrus-filled fruit.
+item.tropicraft.food.fruit.lemon.name=Lemon
+item.tropicraft.food.fruit.lemon.desc=A yellow and sour citrus-filled fruit.
+item.tropicraft.food.fruit.lime.name=Lime
+item.tropicraft.food.fruit.lime.desc=A green citrus-filled fruit.
+item.tropicraft.food.fruit.grapefruit.name=Grapefruit
+item.tropicraft.food.fruit.grapefruit.desc=A yellow-ish orange citrus-filled fruit.
+item.tropicraft.food.coconut.name=Coconut Chunk
+item.tropicraft.food.coconut.desc=Can be shaken with lime.
