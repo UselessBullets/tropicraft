@@ -1,5 +1,7 @@
 package cookie.tropicraft.world;
 
+import cookie.tropicraft.block.TropicraftBlocks;
+import net.minecraft.core.world.Dimension;
 import net.minecraft.core.world.biome.Biome;
 import net.minecraft.core.world.biome.Biomes;
 import useless.terrainapi.generation.overworld.ChunkDecoratorOverworldAPI;
@@ -14,9 +16,14 @@ public class TropicraftWorldgen {
 		);
 
 		ChunkDecoratorOverworldAPI.biomeFeatures.addFeatureSurface(
+			new WorldFeaturePineapple(),
+			1,
+			new Biome[]{Biomes.OVERWORLD_RAINFOREST}
+		);
+
+		ChunkDecoratorOverworldAPI.randomFeatures.addFeatureSurface(
 			new WorldFeatureTreePalm(),
-                1,
-			new Biome[]{Biomes.OVERWORLD_DESERT}
+                10
 		);
 	}
 }

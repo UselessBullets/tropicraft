@@ -23,7 +23,7 @@ public class BlockCoconut extends Block {
 		if (dropCause == EnumDropCause.EXPLOSION || dropCause == EnumDropCause.PROPER_TOOL)
 			return new ItemStack[]{new ItemStack(TropicraftItems.foodCoconutChunk, random.nextInt(4 - 1) + 1)};
 		else
-			return new ItemStack[]{new ItemStack(this)};
+			return new ItemStack[]{new ItemStack(TropicraftItems.itemCoconut)};
 	}
 
 	@Override

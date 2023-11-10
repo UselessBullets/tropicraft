@@ -1,5 +1,6 @@
 package cookie.tropicraft.world;
 
+import cookie.tropicraft.TropicraftTags;
 import cookie.tropicraft.block.TropicraftBlocks;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.tag.BlockTags;
@@ -15,9 +16,7 @@ public class WorldFeatureTreePalm extends WorldFeature {
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z) {
 		if (y < world.getHeightBlocks()) {
-			if (world.getBlock(x, y - 1, z).hasTag(BlockTags.GROWS_TREES)) {
-				if (world.getBlockId(x, y - 1, z) == Block.grass.id)
-					world.setBlock(x, y, z, Block.dirt.id);
+			if (world.getBlock(x, y - 1, z).hasTag(TropicraftTags.GROWS_PALM_TREES)) {
 
 				int randHeight = random.nextInt(4 - 1) + 1;
 

@@ -2,8 +2,10 @@ package cookie.tropicraft.mixin;
 
 import cookie.tropicraft.Tropicraft;
 import cookie.tropicraft.block.BlockLeavesCitrus;
+import cookie.tropicraft.block.BlockTorchTiki;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.render.RenderBlocks;
+import net.minecraft.client.render.Tessellator;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.world.WorldSource;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,7 +14,6 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import turniplabs.halplibe.helper.TextureHelper;
 
 @Mixin(value = RenderBlocks.class, remap = false)
 public class RenderBlocksMixin {
@@ -43,9 +44,33 @@ public class RenderBlocksMixin {
         return true;
     }
 
+	@Unique
+	private boolean renderTikiTorch(BlockTorchTiki block, int x, int y, int z) {
+        RenderBlocks renderBlocks = (RenderBlocks)(Object)this;
+		Tessellator tessellator = Tessellator.instance;
+		float f = renderBlocks.getBlockBrightness(blockAccess, x, y, z);
+
+		if (Block.lightValue[block.id] > 0)
+			f = 1.0F;
+
+		int[][] overlay = Tropicraft.torchTextures;
+		if (blockAccess.getBlockMetadata(x, y, z) == 1)
+			overrideBlockTexture = (Block.texCoordToIndex(overlay[1][0], overlay[1][1]));
+		else
+			overrideBlockTexture = (Block.texCoordToIndex(overlay[0][0], overlay[0][1]));
+
+		tessellator.setColorOpaque_F(f, f, f);
+		renderBlocks.renderTorchAtAngle(block, x, y, z, 0.0, 0.0);
+		overrideBlockTexture = -1;
+
+		return true;
+	}
+
     @Inject(method = "renderBlockByRenderType", at = @At("HEAD"), cancellable = true)
     private void tropicraft_renderLeaves(Block block, int renderType, int x, int y, int z, CallbackInfoReturnable<Boolean> cir) {
         if (renderType == 33)
             cir.setReturnValue(renderCitrus((BlockLeavesCitrus) block, x, y, z));
+		if (renderType == 34)
+			cir.setReturnValue(renderTikiTorch((BlockTorchTiki) block, x, y, z));
     }
 }
