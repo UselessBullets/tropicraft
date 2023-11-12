@@ -24,8 +24,7 @@ public class BlockTorchTiki extends Block {
 
 	int[][] torchTexture = new int[][]{
 		TextureHelper.getOrCreateBlockTexture(Tropicraft.MOD_ID, "tikitorch_bottom.png"),
-		TextureHelper.getOrCreateBlockTexture(Tropicraft.MOD_ID, "tikitorch_top.png"),
-		TextureHelper.getOrCreateBlockTexture(Tropicraft.MOD_ID, "tikitorch_overlay.png")
+		TextureHelper.getOrCreateBlockTexture(Tropicraft.MOD_ID, "tikitorch_top.png")
 	};
 
 	@Override

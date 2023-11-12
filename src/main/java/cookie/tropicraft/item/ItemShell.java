@@ -43,9 +43,9 @@ public class ItemShell extends Item {
             default:
                 return super.getLanguageKey(itemstack);
             case 3:
-                return "tropicraft.shell.rare";
+                return "item.tropicraft.shell.rare";
             case 4:
-                return "tropicraft.shell.seastar";
+                return "item.tropicraft.shell.seastar";
         }
     }
 }

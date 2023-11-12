@@ -1,6 +1,7 @@
 package cookie.tropicraft.block;
 
 import cookie.tropicraft.Tropicraft;
+import cookie.tropicraft.TropicraftConfig;
 import cookie.tropicraft.TropicraftTags;
 import net.minecraft.client.render.block.color.BlockColorLeaves;
 import net.minecraft.client.render.block.model.BlockModelRenderBlocks;
@@ -9,13 +10,12 @@ import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.item.tool.ItemToolPickaxe;
-import net.minecraft.core.world.Dimension;
 import turniplabs.halplibe.helper.BlockBuilder;
 
 public class TropicraftBlocks {
-	private int blockID = 1300;
-	private int nextBlockID() {
-		return blockID++;
+
+	private int nextBlockID(String blockName) {
+		return TropicraftConfig.cfg.getInt("Block IDs." + blockName);
 	}
 
 	public static Block blockBamboo;
@@ -23,8 +23,10 @@ public class TropicraftBlocks {
 	public static Block leavesCitrus;
 	public static Block leavesPalm;
 	public static Block leavesPalmFast;
+	public static Block leavesFlowering;
 	public static Block saplingCitrus;
 	public static Block saplingPalm;
+	public static Block saplingFlowering;
 	public static Block flowerDayflower;
 	public static Block flowerMontbretia;
 	public static Block flowerOrchid;
@@ -40,10 +42,13 @@ public class TropicraftBlocks {
 	public static Block thatchSlab;
 	public static Block bambooPlankStairs;
 	public static Block thatchStairs;
+	public static Block agave;
+	public static Block tropicalCactus;
 	public static Block tropicsPortal;
 
 	private void addToTags() {
 		Block.sand.withTags(TropicraftTags.GROWS_PALM_TREES);
+		Block.grass.withTags(TropicraftTags.GROWS_TROPICAL_CACTUS);
 	}
 
 	private void pickaxeLevels() {
@@ -63,7 +68,7 @@ public class TropicraftBlocks {
 			.setBlockModel(new BlockModelRenderBlocks(1))
 			.setHardness(0.2f)
 			.setBlockSound(BlockSounds.GRASS)
-			.build(new BlockBamboo("bamboo", nextBlockID()))
+			.build(new BlockBamboo("bamboo", nextBlockID("blockBamboo")))
 			.setTickOnLoad(true)
 			.withTags(BlockTags.MINEABLE_BY_SWORD, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.BROKEN_BY_FLUIDS)
 			.withDisabledStats();
@@ -73,7 +78,7 @@ public class TropicraftBlocks {
 			.setSideTextures("log_palm_sides.png")
 			.setHardness(2.0f)
 			.setBlockSound(BlockSounds.WOOD)
-			.build(new BlockLog("log.palm", nextBlockID()))
+			.build(new BlockLog("log.palm", nextBlockID("logPalm")))
 			.withTags(BlockTags.MINEABLE_BY_AXE);
 
 		leavesPalm = new BlockBuilder(MOD_ID)
@@ -82,13 +87,13 @@ public class TropicraftBlocks {
 			.setBlockSound(BlockSounds.GRASS)
 			.setBlockColor(new BlockColorLeaves("pine"))
 			.setLightOpacity(1)
-			.build(new BlockLeavesPalm("leaves.palm", nextBlockID(), Material.leaves, false))
+			.build(new BlockLeavesPalm("leaves.palm", nextBlockID("leavesPalm"), Material.leaves, false))
 			.setTickOnLoad(true)
-			.withTags(BlockTags.MINEABLE_BY_SWORD, BlockTags.MINEABLE_BY_AXE, BlockTags.MINEABLE_BY_HOE, BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH);
+			.withTags(BlockTags.MINEABLE_BY_AXE, BlockTags.MINEABLE_BY_AXE, BlockTags.MINEABLE_BY_HOE, BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH);
 
 		leavesPalmFast = new BlockBuilder(MOD_ID)
 			.setTextures("leaves_palm.png")
-			.build(new BlockLeavesPalm("leaves.palm", nextBlockID(), Material.leaves, false))
+			.build(new BlockLeavesPalm("leaves.palm", nextBlockID("leavesPalmFast"), Material.leaves, false))
 			.withTags(BlockTags.NOT_IN_CREATIVE_MENU);
 
 		leavesCitrus = new BlockBuilder(MOD_ID)
@@ -98,7 +103,18 @@ public class TropicraftBlocks {
 			.setBlockModel(new BlockModelRenderBlocks(33))
 			.setBlockColor(new BlockColorLeaves("birch"))
 			.setLightOpacity(1)
-			.build(new BlockLeavesCitrus("leaves.citrus", nextBlockID(), false))
+			.build(new BlockLeavesCitrus("leaves.citrus", nextBlockID("leavesCitrus"), false))
+			.setTickOnLoad(true)
+			.withTags(BlockTags.MINEABLE_BY_SWORD, BlockTags.MINEABLE_BY_AXE, BlockTags.MINEABLE_BY_HOE, BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH);
+
+		leavesFlowering = new BlockBuilder(MOD_ID)
+			.setTextures(2, 20)
+			.setHardness(0.2f)
+			.setBlockSound(BlockSounds.GRASS)
+			.setBlockModel(new BlockModelRenderBlocks(35))
+			.setBlockColor(new BlockColorLeaves("oak"))
+			.setLightOpacity(1)
+			.build(new BlockLeavesFlowering("leaves.flowering", nextBlockID("leavesFlowering"), Material.leaves, false))
 			.setTickOnLoad(true)
 			.withTags(BlockTags.MINEABLE_BY_SWORD, BlockTags.MINEABLE_BY_AXE, BlockTags.MINEABLE_BY_HOE, BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH);
 
@@ -106,31 +122,38 @@ public class TropicraftBlocks {
 			.setTextures("sapling_palm.png")
 			.setBlockSound(BlockSounds.GRASS)
 			.setBlockModel(new BlockModelRenderBlocks(1))
-			.build(new BlockSaplingPalm("sapling.palm", nextBlockID()))
+			.build(new BlockSaplingPalm("sapling.palm", nextBlockID("saplingPalm")))
 			.setTickOnLoad(true);
 
 		saplingCitrus = new BlockBuilder(MOD_ID)
 			.setTextures("sapling_citrus.png")
 			.setBlockSound(BlockSounds.GRASS)
 			.setBlockModel(new BlockModelRenderBlocks(1))
-			.build(new BlockSaplingCitrus("sapling.citrus", nextBlockID()))
+			.build(new BlockSaplingCitrus("sapling.citrus", nextBlockID("saplingCitrus")))
+			.setTickOnLoad(true);
+
+		saplingFlowering = new BlockBuilder(MOD_ID)
+			.setTextures("sapling_flowering.png")
+			.setBlockSound(BlockSounds.GRASS)
+			.setBlockModel(new BlockModelRenderBlocks(1))
+			.build(new BlockSaplingFlowering("sapling.flowering", nextBlockID("saplingFlowering")))
 			.setTickOnLoad(true);
 
 		flowerDayflower = flowerBuilder
 			.setTextures("flower_dayflower.png")
-			.build(new BlockFlower("flower.dayflower", nextBlockID()));
+			.build(new BlockFlower("flower.dayflower", nextBlockID("flowerDayflower")));
 
 		flowerMontbretia = flowerBuilder
 			.setTextures("flower_montbretia.png")
-			.build(new BlockFlower("flower.montbretia", nextBlockID()));
+			.build(new BlockFlower("flower.montbretia", nextBlockID("flowerMontbretia")));
 
 		flowerOrchid = flowerBuilder
 			.setTextures("flower_orchid.png")
-			.build(new BlockFlower("flower.orchid", nextBlockID()));
+			.build(new BlockFlower("flower.orchid", nextBlockID("flowerOrchid")));
 
 		flowerIris = flowerBuilder
 			.setTextures("flower_iris_bottom.png")
-			.build(new BlockFlowerIris("flower.iris", nextBlockID())
+			.build(new BlockFlowerIris("flower.iris", nextBlockID("flowerIris"))
 				.withTags(BlockTags.NOT_IN_CREATIVE_MENU));
 
 		cropsPineapple = new BlockBuilder(MOD_ID)
@@ -138,7 +161,7 @@ public class TropicraftBlocks {
 			.setBlockSound(BlockSounds.GRASS)
 			.setBlockModel(new BlockModelRenderBlocks(1))
 			.setHardness(0.2f)
-			.build(new BlockCropsPineapple("crops.pineapple", nextBlockID()))
+			.build(new BlockCropsPineapple("crops.pineapple", nextBlockID("cropsPineapple")))
 			.withTags(BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_SWORD, BlockTags.BROKEN_BY_FLUIDS)
 			.setTickOnLoad(true);
 
@@ -148,14 +171,14 @@ public class TropicraftBlocks {
 			.setResistance(1.0f)
 			.setBlockSound(BlockSounds.WOOD)
 			.setBlockModel(new BlockModelRenderBlocks(1))
-			.build(new BlockCoconut("coconut", nextBlockID()))
-			.withTags(BlockTags.MINEABLE_BY_AXE, BlockTags.NOT_IN_CREATIVE_MENU);
+			.build(new BlockCoconut("coconut", nextBlockID("coconut")))
+			.withTags(BlockTags.MINEABLE_BY_SWORD, BlockTags.NOT_IN_CREATIVE_MENU);
 
 		sandPurified = new BlockBuilder(MOD_ID)
 			.setTextures("sand_purified.png")
 			.setBlockSound(BlockSounds.SAND)
 			.setHardness(0.5f)
-			.build(new BlockSand("sand.purified", nextBlockID()))
+			.build(new BlockSand("sand.purified", nextBlockID("sandPurified")))
 			.withTags(BlockTags.GROWS_CACTI, TropicraftTags.GROWS_PALM_TREES, BlockTags.MINEABLE_BY_SHOVEL);
 
 		harris = new BlockBuilder(MOD_ID)
@@ -167,7 +190,7 @@ public class TropicraftBlocks {
 			.setBlockSound(BlockSounds.METAL)
 			.setHardness(10.0f)
 			.setResistance(2000.0f)
-			.build(new BlockHarris("harris", nextBlockID(), Material.metal))
+			.build(new BlockHarris("harris", nextBlockID("harris"), Material.metal))
 			.withTags(BlockTags.MINEABLE_BY_PICKAXE);
 
 		torchTiki = new BlockBuilder(MOD_ID)
@@ -175,7 +198,7 @@ public class TropicraftBlocks {
 			.setBlockSound(BlockSounds.WOOD)
 			.setBlockModel(new BlockModelRenderBlocks(34))
 			.setHardness(0.2f)
-			.build(new BlockTorchTiki("torch.tiki", nextBlockID()))
+			.build(new BlockTorchTiki("torch.tiki", nextBlockID("torchTiki")))
 			.setTickOnLoad(true)
 			.withLightValue(0.9375F)
 			.withTags(BlockTags.NOT_IN_CREATIVE_MENU);
@@ -185,7 +208,7 @@ public class TropicraftBlocks {
 			.setBlockSound(BlockSounds.WOOD)
 			.setHardness(2.0f)
 			.setResistance(5.0f)
-			.build(new Block("planks.bamboo", nextBlockID(), Material.wood))
+			.build(new Block("planks.bamboo", nextBlockID("bambooPlanks"), Material.wood))
 			.withTags(BlockTags.MINEABLE_BY_AXE, BlockTags.FENCES_CONNECT)
 			.withDisabledNeighborNotifyOnMetadataChange();
 
@@ -193,7 +216,7 @@ public class TropicraftBlocks {
 			.setTextures("thatch.png")
 			.setBlockSound(BlockSounds.GRASS)
 			.setHardness(1.0f)
-			.build(new Block("thatch", nextBlockID(), Material.grass))
+			.build(new Block("thatch", nextBlockID("thatch"), Material.grass))
 			.withTags(BlockTags.MINEABLE_BY_SWORD, BlockTags.MINEABLE_BY_HOE)
 			.withDisabledNeighborNotifyOnMetadataChange();
 
@@ -201,14 +224,14 @@ public class TropicraftBlocks {
 			.setBlockSound(BlockSounds.WOOD)
 			.setHardness(2.0f)
 			.setResistance(5.0f)
-			.build(new BlockSlab(bambooPlanks, nextBlockID()))
+			.build(new BlockSlab(bambooPlanks, nextBlockID("bambooPlankSlab")))
 			.withTags(BlockTags.MINEABLE_BY_AXE)
 			.withLitInteriorSurface(true);
 
 		thatchSlab = new BlockBuilder(MOD_ID)
 			.setBlockSound(BlockSounds.GRASS)
 			.setHardness(1.0f)
-			.build(new BlockSlab(thatch, nextBlockID()))
+			.build(new BlockSlab(thatch, nextBlockID("thatchSlab")))
 			.withTags(BlockTags.MINEABLE_BY_SWORD, BlockTags.MINEABLE_BY_HOE)
 			.withLitInteriorSurface(true);
 
@@ -217,7 +240,7 @@ public class TropicraftBlocks {
 			.setHardness(2.0f)
 			.setResistance(5.0f)
 			.setBlockModel(new BlockModelRenderBlocks(10))
-			.build(new BlockStairs(bambooPlanks, nextBlockID()))
+			.build(new BlockStairs(bambooPlanks, nextBlockID("bambooPlankStairs")))
 			.withTags(BlockTags.MINEABLE_BY_AXE)
 			.withLitInteriorSurface(true);
 
@@ -225,17 +248,36 @@ public class TropicraftBlocks {
 			.setBlockSound(BlockSounds.GRASS)
 			.setHardness(1.0f)
 			.setBlockModel(new BlockModelRenderBlocks(10))
-			.build(new BlockStairs(thatch, nextBlockID()))
+			.build(new BlockStairs(thatch, nextBlockID("thatchStairs")))
 			.withTags(BlockTags.MINEABLE_BY_SWORD, BlockTags.MINEABLE_BY_HOE)
 			.withLitInteriorSurface(true);
+
+		agave = new BlockBuilder(MOD_ID)
+			.setTextures("agave.png")
+			.setBlockSound(BlockSounds.GRASS)
+			.setHardness(0.2f)
+			.setBlockModel(new BlockModelRenderBlocks(1))
+			.build(new BlockAgave("agave", nextBlockID("agave")))
+			.withTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_SWORD, BlockTags.MINEABLE_BY_SHEARS, BlockTags.NOT_IN_CREATIVE_MENU)
+			.setTickOnLoad(true);
+
+		tropicalCactus = new BlockBuilder(MOD_ID)
+			.setTopTexture(5, 4)
+			.setBottomTexture(7, 4)
+			.setSideTextures(6, 4)
+			.setHardness(0.4f)
+			.setBlockSound(BlockSounds.CLOTH)
+			.setBlockModel(new BlockModelRenderBlocks(13))
+			.build(new BlockTropicalCactus("cactus.tropical", nextBlockID("tropicalCactus")))
+			.withTags(BlockTags.GROWS_CACTI, BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_HOE, BlockTags.BROKEN_BY_FLUIDS)
+			.setTickOnLoad(true);
 
 		tropicsPortal = new BlockBuilder(MOD_ID)
 				.setTextures(14, 0)
 				.setBlockSound(BlockSounds.GLASS)
 				.setHardness(-1)
-				.build(new BlockPortal("portal.tropics", nextBlockID(), Tropicraft.tropicsDimension.id, Block.brickSandstone.id, Block.fluidWaterStill.id));
+				.build(new BlockPortal("portal.tropics", nextBlockID("tropicsPortal"), TropicraftConfig.cfg.getInt("Tropicraft.tropicsDimID"), Block.brickSandstone.id, Block.basalt.id));
 
 		addToTags();
-		pickaxeLevels();
-	}
+		pickaxeLevels();}
 }

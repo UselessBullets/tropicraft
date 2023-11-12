@@ -9,12 +9,19 @@ public class ItemDrink extends Item {
 
     public ItemDrink(int id) {
         super(id);
+		setMaxStackSize(1);
     }
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-        itemstack.consumeItem(entityplayer);
-        world.playSoundAtEntity(entityplayer, "tropicraft.gulp", 1.0f, 1.0f);
-        return new ItemStack(TropicraftItems.mugEmpty);
-    }
+
+		if (entityplayer.gamemode.consumeBlocks) {
+			world.playSoundAtEntity(entityplayer, "tropicraft.gulp", 1.0f, 1.0f);
+			if (!world.isClientSide) {
+				itemstack.consumeItem(entityplayer);
+				return new ItemStack(TropicraftItems.mugEmpty);
+			}
+		}
+		return itemstack;
+	}
 }

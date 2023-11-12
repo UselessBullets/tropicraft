@@ -12,7 +12,6 @@ import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.util.phys.AABB;
 import net.minecraft.core.world.World;
-import net.minecraft.core.world.WorldSource;
 import turniplabs.halplibe.helper.TextureHelper;
 
 public class BlockFlowerIris extends Block {
@@ -21,7 +20,7 @@ public class BlockFlowerIris extends Block {
 		super(key, id, Material.plant);
 	}
 
-	int[][] flowerTexture = new int[][]{
+	int[][] texture = new int[][]{
 		TextureHelper.getOrCreateBlockTexture(Tropicraft.MOD_ID, "flower_iris_bottom.png"),
 		TextureHelper.getOrCreateBlockTexture(Tropicraft.MOD_ID, "flower_iris_top.png")
 	};
@@ -57,18 +56,12 @@ public class BlockFlowerIris extends Block {
 	}
 
 	@Override
-	public void onBlockPlaced(World world, int x, int y, int z, Side side, EntityLiving entity, double sideHeight) {
-		world.setBlock(x, y, z, this.id);
-		world.setBlockAndMetadata(x, y + 1, z, this.id, 1);
-	}
-
-	@Override
 	public int getBlockTextureFromSideAndMetadata(Side side, int meta) {
 		int sideID = side.getId();
 		if (meta == 1)
-			atlasIndices[sideID] = texCoordToIndex(flowerTexture[1][0], flowerTexture[1][1]);
+			atlasIndices[sideID] = texCoordToIndex(texture[1][0], texture[1][1]);
 		else
-			atlasIndices[sideID] = texCoordToIndex(flowerTexture[0][0], flowerTexture[0][1]);
+			atlasIndices[sideID] = texCoordToIndex(texture[0][0], texture[0][1]);
 
 		return atlasIndices[sideID];
 	}

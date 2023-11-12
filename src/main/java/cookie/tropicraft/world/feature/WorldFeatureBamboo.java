@@ -1,4 +1,4 @@
-package cookie.tropicraft.world;
+package cookie.tropicraft.world.feature;
 
 import cookie.tropicraft.block.TropicraftBlocks;
 import net.minecraft.core.block.material.Material;

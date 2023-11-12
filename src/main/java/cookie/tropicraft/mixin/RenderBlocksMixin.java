@@ -2,6 +2,7 @@ package cookie.tropicraft.mixin;
 
 import cookie.tropicraft.Tropicraft;
 import cookie.tropicraft.block.BlockLeavesCitrus;
+import cookie.tropicraft.block.BlockLeavesFlowering;
 import cookie.tropicraft.block.BlockTorchTiki;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.render.RenderBlocks;
@@ -27,12 +28,12 @@ public class RenderBlocksMixin {
 
     // Has to be put in here else it doesn't work for some reason
     @Unique
-    private boolean renderCitrus(BlockLeavesCitrus block, int x, int y, int z) {
+    private boolean renderLeavesCitrus(BlockLeavesCitrus block, int x, int y, int z) {
         int meta = this.blockAccess.getBlockMetadata(x, y, z);
         RenderBlocks renderBlocks = (RenderBlocks)(Object)this;
         renderBlocks.renderStandardBlock(block, x, y, z);
         if (meta == 1) {
-            int[] overlay = Tropicraft.overlay;
+            int[] overlay = Tropicraft.citrusOverlay;
             this.overrideBlockTexture = (Block.texCoordToIndex(overlay[0], overlay[1]));
             if (mc.isAmbientOcclusionEnabled()) {
                 renderBlocks.renderStandardBlockWithAmbientOcclusion(block, x, y, z, 1.0F, 1.0F, 1.0F);
@@ -43,6 +44,24 @@ public class RenderBlocksMixin {
         }
         return true;
     }
+
+	@Unique
+	private boolean renderLeavesFlowering(BlockLeavesFlowering block, int x, int y, int z) {
+		int meta = this.blockAccess.getBlockMetadata(x, y, z);
+		RenderBlocks renderBlocks = (RenderBlocks)(Object)this;
+		renderBlocks.renderStandardBlock(block, x, y, z);
+		if (meta == 1) {
+			int[] overlay = Tropicraft.floweringOverlay;
+			this.overrideBlockTexture = (Block.texCoordToIndex(overlay[0], overlay[1]));
+			if (mc.isAmbientOcclusionEnabled()) {
+				renderBlocks.renderStandardBlockWithAmbientOcclusion(block, x, y, z, 1.0F, 1.0F, 1.0F);
+			} else {
+				renderBlocks.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
+			}
+			this.overrideBlockTexture = -1;
+		}
+		return true;
+	}
 
 	@Unique
 	private boolean renderTikiTorch(BlockTorchTiki block, int x, int y, int z) {
@@ -69,8 +88,10 @@ public class RenderBlocksMixin {
     @Inject(method = "renderBlockByRenderType", at = @At("HEAD"), cancellable = true)
     private void tropicraft_renderLeaves(Block block, int renderType, int x, int y, int z, CallbackInfoReturnable<Boolean> cir) {
         if (renderType == 33)
-            cir.setReturnValue(renderCitrus((BlockLeavesCitrus) block, x, y, z));
+            cir.setReturnValue(renderLeavesCitrus((BlockLeavesCitrus) block, x, y, z));
 		if (renderType == 34)
 			cir.setReturnValue(renderTikiTorch((BlockTorchTiki) block, x, y, z));
+		if (renderType == 35)
+			cir.setReturnValue(renderLeavesFlowering((BlockLeavesFlowering) block, x, y, z));
     }
 }

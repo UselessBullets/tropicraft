@@ -1,6 +1,7 @@
 package cookie.tropicraft.item;
 
 import cookie.tropicraft.Tropicraft;
+import cookie.tropicraft.TropicraftConfig;
 import cookie.tropicraft.block.TropicraftBlocks;
 import net.minecraft.core.item.*;
 import net.minecraft.core.item.material.ArmorMaterial;
@@ -9,9 +10,8 @@ import turniplabs.halplibe.helper.ItemHelper;
 
 public class TropicraftItems {
 
-	private int itemID = 17300;
-	private int nextItemID() {
-		return itemID++;
+	private int nextItemID(String itemName) {
+		return TropicraftConfig.cfg.getInt("Item IDs." + itemName);
 	}
 
 	public static Item itemBamboo;
@@ -28,6 +28,7 @@ public class TropicraftItems {
 	public static Item foodFrogRaw;
 	public static Item foodFrogCooked;
 	public static Item seedsPineapple;
+	public static Item seedsAgave;
 	public static Item leatherFrog;
 	public static Item scale;
 	public static Item armorHelmetScale;
@@ -37,6 +38,7 @@ public class TropicraftItems {
 	public static Item shell;
 	public static Item torchTiki;
 	public static Item itemFlowerIris;
+	public static Item flowerAgave;
 
 	public static ArmorMaterial scaleMaterial;
 
@@ -50,105 +52,114 @@ public class TropicraftItems {
 		initializeArmor();
 
 		itemBamboo = ItemHelper.createItem(MOD_ID,
-			new ItemPlaceable("bamboo", nextItemID(), TropicraftBlocks.blockBamboo),
+			new ItemPlaceable("bamboo", nextItemID("itemBamboo"), TropicraftBlocks.blockBamboo),
 			"bamboo",
 			"bamboo.png");
 
 		mugEmpty = ItemHelper.createItem(MOD_ID,
-				new Item(nextItemID()),
+				new Item(nextItemID("mugEmpty")),
 				"mug.empty",
 				"mug_empty.png");
 		mugFullColada = ItemHelper.createItem(MOD_ID,
-				new ItemDrinkColada(nextItemID()),
+				new ItemDrinkColada(nextItemID("mugFullColada")),
 				"mug.full.colada",
 				"mug_full.png");
 		mugFullDrink = ItemHelper.createItem(MOD_ID,
-				new ItemDrink(nextItemID()),
+				new ItemDrink(nextItemID("mugFullDrink")),
 				"mug.full",
 				"mug_full.png");
 
 		itemCoconut = ItemHelper.createItem(MOD_ID,
-			new ItemCoconut("coconut", nextItemID()),
+			new ItemCoconut("coconut", nextItemID("itemCoconut")),
 			"coconut",
 			"coconut.png");
 
 		foodPineapple = ItemHelper.createItem(MOD_ID,
-			new ItemFoodPineapple("food.fruit.pineapple", nextItemID()),
+			new ItemFoodPineapple("food.fruit.pineapple", nextItemID("foodPineapple")),
 			"food.fruit.pineapple",
 			"fruit_pineapple.png"
 			);
 		foodOrange = ItemHelper.createItem(MOD_ID,
-				new ItemFoodStackable("food.fruit.orange", nextItemID(), 2, false, 4),
+				new ItemFoodStackable("food.fruit.orange", nextItemID("foodOrange"), 2, false, 4),
 				"food.fruit.orange",
 				"fruit_orange.png");
 		foodLemon = ItemHelper.createItem(MOD_ID,
-				new ItemFoodStackable("food.fruit.lemon", nextItemID(), 2, false, 4),
+				new ItemFoodStackable("food.fruit.lemon", nextItemID("foodLemon"), 2, false, 4),
 				"food.fruit.lemon",
 				"fruit_lemon.png");
 		foodLime = ItemHelper.createItem(MOD_ID,
-				new ItemFoodStackable("food.fruit.lime", nextItemID(), 2, false, 4),
+				new ItemFoodStackable("food.fruit.lime", nextItemID("foodLime"), 2, false, 4),
 				"food.fruit.lime",
 				"fruit_lime.png");
 		foodGrapefruit = ItemHelper.createItem(MOD_ID,
-				new ItemFoodStackable("food.fruit.grapefruit", nextItemID(), 2, false, 4),
+				new ItemFoodStackable("food.fruit.grapefruit", nextItemID("foodGrapefruit"), 2, false, 4),
 				"food.fruit.grapefruit",
 				"fruit_grapefruit.png");
 		foodCoconutChunk = ItemHelper.createItem(MOD_ID,
-			new ItemFoodStackable("food.coconut", nextItemID(), 1, false, 8),
+			new ItemFoodStackable("food.coconut", nextItemID("foodCoconutChunk"), 1, false, 8),
 			"food.coconut",
 			"coconut_chunk.png");
 		foodFrogRaw = ItemHelper.createItem(MOD_ID,
-				new ItemFoodStackable("food.frog.raw", nextItemID(), 1, true, 2),
+				new ItemFoodStackable("food.frog.raw", nextItemID("foodFrogRaw"), 1, true, 2),
 				"food.frog.raw",
 				"frog_leg.png");
 		foodFrogCooked = ItemHelper.createItem(MOD_ID,
-				new ItemFoodStackable("food.frog.cooked", nextItemID(), 4, true, 2),
+				new ItemFoodStackable("food.frog.cooked", nextItemID("foodFrogCooked"), 4, true, 2),
 				"food.frog.cooked",
 				"frog_leg_cooked.png");
 
 		seedsPineapple = ItemHelper.createItem(MOD_ID,
-				new ItemPlaceable("seeds.pineapple", nextItemID(), TropicraftBlocks.cropsPineapple),
+				new ItemPlaceable("seeds.pineapple", nextItemID("seedsPineapple"), TropicraftBlocks.cropsPineapple),
 				"seeds.pineapple",
 				"seeds_pineapple.png");
+		seedsAgave = ItemHelper.createItem(MOD_ID,
+				new ItemPlaceable("seeds.agave", nextItemID("seedsAgave"), TropicraftBlocks.agave),
+				"seeds.agave",
+				"seeds_agave.png");
 
 		leatherFrog = ItemHelper.createItem(MOD_ID,
-				new Item(nextItemID()),
+				new Item(nextItemID("leatherFrog")),
 				"leather.frog",
 				"leather_frog.png");
 		scale = ItemHelper.createItem(MOD_ID,
-				new Item(nextItemID()),
+				new Item(nextItemID("scale")),
 				"scale",
 				"scale.png");
 
 		armorHelmetScale = ItemHelper.createItem(MOD_ID,
-				new ItemArmor("armor.helmet.scale", nextItemID(), scaleMaterial, 0),
+				new ItemArmor("armor.helmet.scale", nextItemID("armorHelmetScale"), scaleMaterial, 0),
 				"armor.helmet.scale",
 				"armor_scale_helmet.png");
 		armorChestplateScale = ItemHelper.createItem(MOD_ID,
-				new ItemArmor("armor.chestplate.scale", nextItemID(), scaleMaterial, 1),
+				new ItemArmor("armor.chestplate.scale", nextItemID("armorChestplateScale"), scaleMaterial, 1),
 				"armor.chestplate.scale",
 				"armor_scale_chestplate.png");
 		armorLeggingsScale = ItemHelper.createItem(MOD_ID,
-				new ItemArmor("armor.leggings.scale", nextItemID(), scaleMaterial, 2),
+				new ItemArmor("armor.leggings.scale", nextItemID("armorLeggingsScale"), scaleMaterial, 2),
 				"armor.leggings.scale",
 				"armor_scale_leggings.png");
 		armorBootsScale = ItemHelper.createItem(MOD_ID,
-				new ItemArmor("armor.boots.scale", nextItemID(), scaleMaterial, 3),
+				new ItemArmor("armor.boots.scale", nextItemID("armorBootsScale"), scaleMaterial, 3),
 				"armor.boots.scale",
 				"armor_scale_boots.png");
 
 		shell = ItemHelper.createItem(MOD_ID,
-				new ItemShell(nextItemID()),
+				new ItemShell(nextItemID("shell")),
 				"shell.common");
 
 		torchTiki = ItemHelper.createItem(MOD_ID,
-			new ItemPlaceable("torch.tiki", nextItemID(), TropicraftBlocks.torchTiki),
+			new ItemPlaceable("torch.tiki", nextItemID("torchTiki"), TropicraftBlocks.torchTiki),
 			"torch.tiki",
 			"torch_tiki.png");
 
 		itemFlowerIris = ItemHelper.createItem(MOD_ID,
-			new ItemPlaceable("iris", nextItemID(), TropicraftBlocks.flowerIris),
+			new ItemPlaceable("iris", nextItemID("itemFlowerIris"), TropicraftBlocks.flowerIris),
 			"iris",
 			"flower_iris.png");
+
+		flowerAgave = ItemHelper.createItem(MOD_ID,
+			new Item("flower.agave", nextItemID("flowerAgave")),
+			"flower.agave",
+			"flower_agave.png");
 	}
 }

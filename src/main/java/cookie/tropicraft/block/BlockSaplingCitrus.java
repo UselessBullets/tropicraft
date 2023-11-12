@@ -1,7 +1,6 @@
 package cookie.tropicraft.block;
 
-import cookie.tropicraft.world.WorldFeatureTreeCitrus;
-import cookie.tropicraft.world.WorldFeatureTreePalm;
+import cookie.tropicraft.world.feature.WorldFeatureTreeCitrus;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockSaplingBase;
 import net.minecraft.core.world.World;

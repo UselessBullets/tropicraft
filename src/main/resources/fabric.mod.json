@@ -25,7 +25,10 @@
   "entrypoints": {
     "main": [
       "cookie.tropicraft.Tropicraft"
-    ]
+    ],
+		"terrain-api": [
+			"cookie.tropicraft.compat.terrainapi.TerrainAPIPlugin"
+		]
   },
   "mixins": [
     "tropicraft.mixins.json"
@@ -34,7 +37,7 @@
   "depends": {
     "fabricloader": ">=0.13.3",
     "halplibe": ">=2.7.0",
-    "terrain-api": ">=1.2.2"
+    "terrain-api": ">=1.3.0"
   },
   "suggests": {
   }

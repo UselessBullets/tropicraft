@@ -1,4 +1,4 @@
-package cookie.tropicraft.world;
+package cookie.tropicraft.world.feature;
 
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.generate.feature.tree.WorldFeatureTree;

@@ -26,8 +26,15 @@ public class ItemCoconut extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int blockX, int blockY, int blockZ, Side side, double xPlaced, double yPlaced) {
-		world.setBlock(blockX, blockY, blockZ, TropicraftBlocks.coconut.id);
-		itemstack.consumeItem(entityplayer);
+		blockX += side.getOffsetX();
+		blockY += side.getOffsetY();
+		blockZ += side.getOffsetZ();
+		if (world.canBlockBePlacedAt(TropicraftBlocks.coconut.id, blockX, blockY, blockZ, false, side)) {
+			world.setBlockWithNotify(blockX, blockY, blockZ, TropicraftBlocks.coconut.id);
+			world.playSoundAtEntity(entityplayer, "step.wood", 1.0f, 0.75f);
+			world.playSoundAtEntity(entityplayer, "liquid.splash", 0.075f, 2.0f);
+			itemstack.consumeItem(entityplayer);
+		}
 		return true;
 	}
 }

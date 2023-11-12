@@ -1,6 +1,5 @@
 package cookie.tropicraft.util;
 
-import cookie.tropicraft.Tropicraft;
 import cookie.tropicraft.item.TropicraftItems;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.item.Item;
