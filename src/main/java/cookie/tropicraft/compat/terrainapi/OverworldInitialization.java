@@ -13,20 +13,7 @@ public class OverworldInitialization extends BaseInitialization {
 
 	@Override
 	protected void initValues() {
-		if (TropicraftConfig.cfg.getBoolean("Overworld Gen.bambooGen"))
-			ChunkDecoratorOverworldAPI.biomeFeatures.addFeatureSurface(new WorldFeatureBamboo(),
-				2,
-				new Biome[]{Biomes.OVERWORLD_RAINFOREST});
 
-		if (TropicraftConfig.cfg.getBoolean("Overworld Gen.pineappleGen"))
-			ChunkDecoratorOverworldAPI.biomeFeatures.addFeatureSurface(new WorldFeaturePineapple(),
-				1,
-				new Biome[]{Biomes.OVERWORLD_RAINFOREST});
-
-		if (TropicraftConfig.cfg.getBoolean("Overworld Gen.palmTreeGen"))
-			ChunkDecoratorOverworldAPI.randomFeatures.addFeatureSurface(
-				new WorldFeatureTreePalm(),
-				10);
 	}
 
 	@Override
@@ -41,11 +28,22 @@ public class OverworldInitialization extends BaseInitialization {
 
 	@Override
 	protected void initRandom() {
-
+		if (TropicraftConfig.cfg.getBoolean("Overworld Gen.palmTreeGen"))
+			ChunkDecoratorOverworldAPI.randomFeatures.addFeatureSurface(
+				new WorldFeatureTreePalm(),
+				10);
 	}
 
 	@Override
 	protected void initBiome() {
+		if (TropicraftConfig.cfg.getBoolean("Overworld Gen.bambooGen"))
+			ChunkDecoratorOverworldAPI.biomeFeatures.addFeatureSurface(new WorldFeatureBamboo(),
+				2,
+				new Biome[]{Biomes.OVERWORLD_RAINFOREST});
 
+		if (TropicraftConfig.cfg.getBoolean("Overworld Gen.pineappleGen"))
+			ChunkDecoratorOverworldAPI.biomeFeatures.addFeatureSurface(new WorldFeaturePineapple(),
+				1,
+				new Biome[]{Biomes.OVERWORLD_RAINFOREST});
 	}
 }
