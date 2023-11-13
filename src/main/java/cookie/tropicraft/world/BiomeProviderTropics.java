@@ -277,11 +277,11 @@ public class BiomeProviderTropics extends BiomeProvider {
 	}
 
 	public static void init() {
-		brm.addRange(TropicraftBiomes.TROPICS_DRYFOREST, new BiomeRange(0.0, 0.6, 0.0, 0.25, 0.25, 1.5, 0.0, 1.0));
-		brm.addRange(TropicraftBiomes.TROPICS_MARSH, new BiomeRange(0.15, 0.4, 0.5, 1.0, 0.0, 0.75, 0.0, 1.0));
-		brm.addRange(TropicraftBiomes.TROPICS_RAINFOREST, new BiomeRange(0.6, 1.0, 0.85, 1.0, 0.0, 1.0, 0.0, 1.0));
-		brm.addRange(TropicraftBiomes.TROPICS_SAVANNA, new BiomeRange(0.5, 0.75, 0.0, 0.15, 0.0, 0.5, 0.0, 1.0));
-		brm.addRange(TropicraftBiomes.TROPICS_VOLCANICPLAINS, new BiomeRange(0.8, 1.0, 0.0, 0.1, 0.0, 0.25, 0.0, 1.0));
+		brm.addRange(TropicraftBiomes.TROPICS_DRYFOREST, new BiomeRange(0.0, 0.5, 0.0, 0.5, 0, 1.0, 0.0, 1.0));
+		brm.addRange(TropicraftBiomes.TROPICS_MARSH, new BiomeRange(0.0, 0.5, 0.5, 1.0, 0.0, 1.0, 0.0, 1.0));
+		brm.addRange(TropicraftBiomes.TROPICS_RAINFOREST, new BiomeRange(0.5, 1.0, 0.5, 1.0, 0.0, 1.0, 0.0, 1.0));
+		brm.addRange(TropicraftBiomes.TROPICS_SAVANNA, new BiomeRange(0.5, 0.8, 0.0, 0.5, 0.0, 1.0, 0.0, 1.0));
+		brm.addRange(TropicraftBiomes.TROPICS_VOLCANICPLAINS, new BiomeRange(0.8, 1.0, 0.0, 0.5, 0.0, 1.0, 0.0, 1.0));
 		brm.lock();
 	}
 }
