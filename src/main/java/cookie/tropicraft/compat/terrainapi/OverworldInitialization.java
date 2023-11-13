@@ -39,11 +39,12 @@ public class OverworldInitialization extends BaseInitialization {
 		if (TropicraftConfig.cfg.getBoolean("Overworld Gen.bambooGen"))
 			ChunkDecoratorOverworldAPI.biomeFeatures.addFeatureSurface(new WorldFeatureBamboo(),
 				2,
-				new Biome[]{Biomes.OVERWORLD_RAINFOREST});
-
+				new Biome[]{Biomes.OVERWORLD_RAINFOREST}
+			);
 		if (TropicraftConfig.cfg.getBoolean("Overworld Gen.pineappleGen"))
 			ChunkDecoratorOverworldAPI.biomeFeatures.addFeatureSurface(new WorldFeaturePineapple(),
 				1,
-				new Biome[]{Biomes.OVERWORLD_RAINFOREST});
+				new Biome[]{Biomes.OVERWORLD_RAINFOREST}
+			);
 	}
 }

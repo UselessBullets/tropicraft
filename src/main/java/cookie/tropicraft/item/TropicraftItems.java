@@ -25,6 +25,7 @@ public class TropicraftItems {
 	public static Item foodLime;
 	public static Item foodGrapefruit;
 	public static Item foodCoconutChunk;
+	public static Item foodCranberries;
 	public static Item foodFrogRaw;
 	public static Item foodFrogCooked;
 	public static Item seedsPineapple;
@@ -96,9 +97,13 @@ public class TropicraftItems {
 				"food.fruit.grapefruit",
 				"fruit_grapefruit.png");
 		foodCoconutChunk = ItemHelper.createItem(MOD_ID,
-			new ItemFoodStackable("food.coconut", nextItemID("foodCoconutChunk"), 1, false, 8),
-			"food.coconut",
-			"coconut_chunk.png");
+				new ItemFoodStackable("food.coconut", nextItemID("foodCoconutChunk"), 1, false, 8),
+				"food.coconut",
+				"coconut_chunk.png");
+		foodCranberries = ItemHelper.createItem(MOD_ID,
+				new ItemFoodStackable("food.cranberries", nextItemID("foodCranberries"), 1, false, 2),
+				"food.cranberries",
+				"cranberries.png");
 		foodFrogRaw = ItemHelper.createItem(MOD_ID,
 				new ItemFoodStackable("food.frog.raw", nextItemID("foodFrogRaw"), 1, true, 2),
 				"food.frog.raw",

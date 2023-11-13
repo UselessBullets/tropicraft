@@ -26,6 +26,7 @@ public class TropicraftBlocks {
 	public static Block leavesFlowering;
 	public static Block saplingCitrus;
 	public static Block saplingPalm;
+	public static Block saplingAcacia;
 	public static Block saplingFlowering;
 	public static Block flowerDayflower;
 	public static Block flowerMontbretia;
@@ -44,6 +45,7 @@ public class TropicraftBlocks {
 	public static Block thatchStairs;
 	public static Block agave;
 	public static Block tropicalCactus;
+	public static Block algaeCranberries;
 	public static Block tropicsPortal;
 
 	private void addToTags() {
@@ -137,6 +139,13 @@ public class TropicraftBlocks {
 			.setBlockSound(BlockSounds.GRASS)
 			.setBlockModel(new BlockModelRenderBlocks(1))
 			.build(new BlockSaplingFlowering("sapling.flowering", nextBlockID("saplingFlowering")))
+			.setTickOnLoad(true);
+
+		saplingAcacia = new BlockBuilder(MOD_ID)
+			.setTextures("sapling_acacia.png")
+			.setBlockSound(BlockSounds.GRASS)
+			.setBlockModel(new BlockModelRenderBlocks(1))
+			.build(new BlockSaplingAcacia("sapling.acacia", nextBlockID("saplingAcacia")))
 			.setTickOnLoad(true);
 
 		flowerDayflower = flowerBuilder
@@ -270,6 +279,14 @@ public class TropicraftBlocks {
 			.setBlockModel(new BlockModelRenderBlocks(13))
 			.build(new BlockTropicalCactus("cactus.tropical", nextBlockID("tropicalCactus")))
 			.withTags(BlockTags.GROWS_CACTI, BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_HOE, BlockTags.BROKEN_BY_FLUIDS)
+			.setTickOnLoad(true);
+
+		algaeCranberries = new BlockBuilder(MOD_ID)
+			.setTextures("algae_cranberry.png")
+			.setBlockSound(BlockSounds.GRASS)
+			.setBlockModel(new BlockModelRenderBlocks(24))
+			.build(new BlockAlgaeCranberry("algae.cranberry", nextBlockID("algaeCranberries")))
+			.withTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.PLACE_OVERWRITES, BlockTags.SHEARS_DO_SILK_TOUCH)
 			.setTickOnLoad(true);
 
 		tropicsPortal = new BlockBuilder(MOD_ID)

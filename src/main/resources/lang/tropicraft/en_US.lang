@@ -1,19 +1,24 @@
 tile.tropicraft.bamboo.name=Bamboo
-tile.tropicraft.bamboo.desc=
+tile.tropicraft.bamboo.desc=Stout and long.
 tile.tropicraft.log.palm.name=Palm Log
 tile.tropicraft.log.palm.desc=A log from a palm tree.
+
 tile.tropicraft.leaves.palm.name=Palm Leaves
 tile.tropicraft.leaves.palm.desc=Leaves from a palm tree.
 tile.tropicraft.leaves.citrus.name=Citrus-Tree Leaves
 tile.tropicraft.leaves.citrus.desc=Leaves from a citrus tree.
 tile.tropicraft.leaves.flowering.name=Flowering Oak Leaves
 tile.tropicraft.leaves.flowering.desc=Leaves from a flowering oak tree.
+
 tile.tropicraft.sapling.palm.name=Palm Sapling
 tile.tropicraft.sapling.palm.desc=Plant to grow a palm tree.
 tile.tropicraft.sapling.citrus.name=Citrus-Tree Sapling
 tile.tropicraft.sapling.citrus.desc=Plant to grow a citrus tree.
 tile.tropicraft.sapling.flowering.name=Flowering Oak Sapling
 tile.tropicraft.sapling.flowering.desc=Plant to grow a flowering oak tree.
+tile.tropicraft.sapling.acacia.name=Acacia Sapling
+tile.tropicraft.sapling.acacia.desc=Plant to grow an acacia sapling.
+
 tile.tropicraft.flower.dayflower.name=Dayflower
 tile.tropicraft.flower.dayflower.desc=A beautiful blue flower.
 tile.tropicraft.flower.montbretia.name=Montbretia
@@ -22,10 +27,12 @@ tile.tropicraft.flower.orchid.name=Orchid
 tile.tropicraft.flower.orchid.desc=A beautiful pink flower.
 tile.tropicraft.flower.iris.name=Iris
 tile.tropicraft.flower.iris.desc=A beautiful purple flower.
+
 tile.tropicraft.crops.pineapple.name=Pineapple
 tile.tropicraft.crops.pineapple.desc=Pineapple, growing from wild seeds.
 tile.tropicraft.coconut.name=Coconut
 tile.tropicraft.coconut.desc=Bonk!
+
 tile.tropicraft.sand.purified.name=Purified Sand
 tile.tropicraft.sand.purified.desc=It's tropical, dude!
 tile.tropicraft.harris.name=Harris
@@ -36,14 +43,17 @@ tile.tropicraft.planks.bamboo.name=Bamboo Planks
 tile.tropicraft.planks.bamboo.desc=Processed bamboo.
 tile.tropicraft.thatch.name=Thatch
 tile.tropicraft.thatch.desc=Bundled wheat.
+
 tile.tropicraft.slab.planks.bamboo.name=Bamboo Plank Slab
 tile.tropicraft.slab.planks.bamboo.desc=A slab of bamboo planks.
 tile.tropicraft.slab.thatch.name=Thatch Slab
 tile.tropicraft.slab.thatch.desc=A slab of thatch.
+
 tile.tropicraft.stairs.planks.bamboo.name=Bamboo Plank Stairs
 tile.tropicraft.stairs.planks.bamboo.desc=Bamboo block used for rapid vertical movement.
 tile.tropicraft.stairs.thatch.name=Thatch Stairs
 tile.tropicraft.stairs.thatch.desc=Thatch block used for rapid vertical movement.
+
 tile.tropicraft.agave.name=Agave
 tile.tropicraft.agave.desc=A spiky plant that grows in tropical places. Blooms in about 100 years.
 tile.tropicraft.cactus.tropical.name=Tropical Cactus
@@ -52,13 +62,14 @@ tile.tropicraft.portal.tropics.name=Tropics Portal
 tile.tropicraft.portal.tropics.desc=A portal to the Tropics.
 
 item.tropicraft.bamboo.name=Bamboo
-item.tropicraft.bamboo.desc=
+item.tropicraft.bamboo.desc=Stout and long.
 item.tropicraft.mug.empty.name=Bamboo Mug
 item.tropicraft.mug.empty.desc=Used to hold various drinks.
 item.tropicraft.mug.full.colada.name=Pina Colada
 item.tropicraft.mug.full.colada.desc=Makes you wish you were on vacation.
 item.tropicraft.mug.full.name=Fruit Smoothie
 item.tropicraft.mug.full.desc=A good source of vitamins.
+
 item.tropicraft.coconut.name=Coconut
 item.tropicraft.coconut.desc=Bonk!
 item.tropicraft.food.fruit.pineapple.name=Pineapple
@@ -73,6 +84,8 @@ item.tropicraft.food.fruit.grapefruit.name=Grapefruit
 item.tropicraft.food.fruit.grapefruit.desc=A yellow-ish orange citrus-filled fruit.
 item.tropicraft.food.coconut.name=Coconut Chunk
 item.tropicraft.food.coconut.desc=Can be shaken with lime.
+item.tropicraft.food.cranberries.name=Cranberries
+item.tropicraft.food.cranberries.desc=Tiny red berries that come in bundles.
 item.tropicraft.food.frog.raw.name=Raw Frog Legs
 item.tropicraft.food.frog.raw.desc=Yuck!
 item.tropicraft.food.frog.cooked.name=Cooked Frog Legs

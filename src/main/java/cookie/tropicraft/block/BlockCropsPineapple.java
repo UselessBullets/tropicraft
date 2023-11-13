@@ -74,7 +74,7 @@ public class BlockCropsPineapple extends Block {
 		if (meta == 1) {
 			return new ItemStack[]{new ItemStack(TropicraftItems.foodPineapple)};
 		} else
-			return new ItemStack[0];
+			return new ItemStack[]{new ItemStack(TropicraftItems.seedsPineapple)};
 	}
 
 	@Override

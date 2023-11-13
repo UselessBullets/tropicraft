@@ -41,7 +41,7 @@ public class WorldTypeTropics extends WorldTypeOverworld {
 
 	@Override
 	public BiomeProvider createBiomeProvider(World world) {
-		return new BiomeProviderSingleBiome(TropicraftBiomes.TROPICS_DRYFOREST, 0.5f, 0.0f, 0.0f);
+		return new BiomeProviderSingleBiome(TropicraftBiomes.TROPICS_RAINFOREST, 0.5f, 0.0f, 0.0f);
 	}
 
 	@Override

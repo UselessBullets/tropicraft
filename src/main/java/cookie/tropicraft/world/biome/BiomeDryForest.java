@@ -8,7 +8,7 @@ public class BiomeDryForest extends Biome {
 
 	public BiomeDryForest() {
 		setBlockedWeathers(Weather.overworldRain, Weather.overworldStorm, Weather.overworldSnow);
-		setColor(588342);
+		setColor(11844186);
 		setTopBlock(Block.grass.id);
 		setFillerBlock(Block.dirt.id);
 	}
