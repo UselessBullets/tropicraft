@@ -41,7 +41,10 @@ public class WorldTypeTropics extends WorldTypeOverworld {
 
 	@Override
 	public BiomeProvider createBiomeProvider(World world) {
-		return new BiomeProviderSingleBiome(TropicraftBiomes.TROPICS_RAINFOREST, 0.5f, 0.0f, 0.0f);
+		return new BiomeProviderTropics(world.getRandomSeed(), this)
+			.withTemperatureScales(0.00625, 0.00625, 0.25, 0.01)
+			.withHumidityScales(0.0125, 0.0125, 0.3, 0.01)
+			.withFuzzinessScales(8.0, 8.0, 0.025);
 	}
 
 	@Override

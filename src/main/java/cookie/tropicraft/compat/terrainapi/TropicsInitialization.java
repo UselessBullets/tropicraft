@@ -32,8 +32,11 @@ public class TropicsInitialization extends BaseInitialization {
 		tropicsConfig.addTreeDensity(TropicraftBiomes.TROPICS_MARSH, 1);
 
 		tropicsConfig.addGrassDensity(TropicraftBiomes.TROPICS_RAINFOREST, 1);
-		tropicsConfig.addTreeDensity(TropicraftBiomes.TROPICS_RAINFOREST, 10);
+		tropicsConfig.addTreeDensity(TropicraftBiomes.TROPICS_RAINFOREST, 8);
 		tropicsConfig.addRandomGrassBlock(TropicraftBiomes.TROPICS_RAINFOREST, Block.tallgrassFern);
+
+		tropicsConfig.addGrassDensity(TropicraftBiomes.TROPICS_VOLCANICPLAINS, 0);
+		tropicsConfig.addTreeDensity(TropicraftBiomes.TROPICS_VOLCANICPLAINS, 0);
 	}
 
 	@Override
@@ -154,6 +157,17 @@ public class TropicsInitialization extends BaseInitialization {
 		biomeFeatures.addFeatureSurface(new WorldFeatureTreeShrub(Block.leavesShrub.id, Block.logOak.id),
 			5,
 			new Biome[]{TropicraftBiomes.TROPICS_RAINFOREST}
+		);
+
+		biomeFeatures.addFeatureSurface(
+			new WorldFeatureBasaltSpike(),
+			1,
+			new Biome[]{TropicraftBiomes.TROPICS_VOLCANICPLAINS}
+		);
+		biomeFeatures.addFeatureSurface(
+			new WorldFeatureLake(Block.fluidLavaStill.id),
+			1,
+			new Biome[]{TropicraftBiomes.TROPICS_VOLCANICPLAINS}
 		);
 	}
 }

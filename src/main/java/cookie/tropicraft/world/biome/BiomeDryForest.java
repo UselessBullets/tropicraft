@@ -7,7 +7,7 @@ import net.minecraft.core.world.weather.Weather;
 public class BiomeDryForest extends Biome {
 
 	public BiomeDryForest() {
-		setBlockedWeathers(Weather.overworldRain, Weather.overworldStorm, Weather.overworldSnow);
+		setBlockedWeathers(Weather.overworldRain, Weather.overworldStorm);
 		setColor(11844186);
 		setTopBlock(Block.grass.id);
 		setFillerBlock(Block.dirt.id);

@@ -5,6 +5,7 @@ import cookie.tropicraft.compat.terrainapi.ChunkDecoratorTropicsAPI;
 import cookie.tropicraft.entity.EntityCoconut;
 import cookie.tropicraft.item.TropicraftItems;
 import cookie.tropicraft.util.ContainerPlayerExtender;
+import cookie.tropicraft.world.BiomeProviderTropics;
 import cookie.tropicraft.world.WorldTypeTropics;
 import cookie.tropicraft.world.biome.TropicraftBiomes;
 import net.fabricmc.api.ModInitializer;
@@ -53,6 +54,8 @@ public class Tropicraft implements ModInitializer {
         new TropicraftBlocks().initializeBlocks();
         new TropicraftItems().initializeItems();
 		new TropicraftBiomes().initializeBiomes();
+
+		BiomeProviderTropics.init();
 
 		tropicsWorld = WorldTypes.register("tropicraft.worldtype.tropics", new WorldTypeTropics("tropicraft.worldtype.tropics"));
 		tropicsDimension = new Dimension("tropicraft.dimension.tropics", Dimension.overworld, 1.0f, TropicraftBlocks.tropicsPortal.id);
