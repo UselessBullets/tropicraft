@@ -77,7 +77,7 @@ public class TropicsInitialization extends BaseInitialization {
 		randomFeatures.addFeature(new WorldFeatureIris(), 2, 1);
 		randomFeatures.addFeature(new WorldFeatureFlowers(Block.mushroomBrown.id), 4, 1);
 		randomFeatures.addFeature(new WorldFeatureFlowers(Block.mushroomRed.id), 8, 1);
-		randomFeatures.addFeature(new WorldFeatureVolcano(), 15, 1);
+		randomFeatures.addFeature(new WorldFeatureVolcano(), 300, -1);
 	}
 
 	@Override

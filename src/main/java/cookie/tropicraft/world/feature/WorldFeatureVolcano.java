@@ -12,27 +12,25 @@ public class WorldFeatureVolcano extends WorldFeature {
 	private boolean blockInCircle(int blockX, int blockZ, double circleX, double circleZ, double radius){
 		return Math.hypot(blockX + 0.5 - circleX, blockZ + 0.5 - circleZ) <= radius;
 	}
+	private int getRadius(double initialRadius, double endingRadius, double height, double currentHeight){
+		double d = (initialRadius - endingRadius)/(height*height);
+		return (int) (d * Math.pow(currentHeight - height, 2) + endingRadius);
+	}
 
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z) {
-		for (int radius = 24; radius > y; radius -= 5) {
-			int height = world.getHeightValue(x + radius, z + radius);
-			for (int xp = x - radius; xp < x + radius; xp++) {
-				for (int zp = z - radius; zp < z + radius; zp++) {
-					if (!(blockInCircle(xp, zp, x, z, radius))) {
-						continue;
-					}
+		int initialRadius = random.nextInt(10) + 15;
+		int endingRadius = Math.max(initialRadius - 5 - random.nextInt(5), initialRadius/2);
+		int height = random.nextInt(30) + 50;
+		int yOffset = -20;
 
-					boolean onCircle = !blockInCircle(xp, zp, x, z, radius - 1);
-					for (int yp = height + 5; yp > 24; yp--) {
-						if (onCircle) {
-							if (world.getBlockId(xp, yp, zp) == 0 || yp < height) {
-								world.setBlock(xp, yp, zp, Block.brickBasalt.id);
-								continue;
-							}
-						}
-						world.setBlock(xp, yp, zp, 0);
-					}
+		for (int yb = y; yb < y + height; yb++) {
+			int radius = getRadius(initialRadius, endingRadius, height, yb - y);
+			for (int xb = x - radius; xb < x + radius; xb++) {
+				for (int zb = z - radius; zb < z + radius; zb++) {
+					if (!blockInCircle(xb, zb, x, z, radius)) continue;
+					boolean inPit = blockInCircle(xb, zb, x, z, endingRadius);
+					world.setBlock(xb, yb + yOffset, zb, inPit ? 0 : Block.basalt.id);
 				}
 			}
 		}
