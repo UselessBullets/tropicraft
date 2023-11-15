@@ -22,7 +22,7 @@ public class WorldFeatureVolcano extends WorldFeature {
 		int initialRadius = random.nextInt(10) + 15;
 		int endingRadius = Math.max(initialRadius - 5 - random.nextInt(5), initialRadius/2);
 		int height = random.nextInt(30) + 50;
-		int yOffset = -20;
+		int yOffset = -5;
 
 		for (int yb = y; yb < y + height; yb++) {
 			int radius = getRadius(initialRadius, endingRadius, height, yb - y);
