@@ -77,6 +77,7 @@ public class TropicsInitialization extends BaseInitialization {
 		randomFeatures.addFeature(new WorldFeatureIris(), 2, 1);
 		randomFeatures.addFeature(new WorldFeatureFlowers(Block.mushroomBrown.id), 4, 1);
 		randomFeatures.addFeature(new WorldFeatureFlowers(Block.mushroomRed.id), 8, 1);
+		randomFeatures.addFeature(new WorldFeatureVolcano(), 15, 1);
 	}
 
 	@Override
@@ -101,7 +102,6 @@ public class TropicsInitialization extends BaseInitialization {
 			1,
 			new	Biome[]{TropicraftBiomes.TROPICS_DRYFOREST}
 		);
-
 		biomeFeatures.addFeatureSurface(
 			new WorldFeatureTreeAcacia(),
 			1,
