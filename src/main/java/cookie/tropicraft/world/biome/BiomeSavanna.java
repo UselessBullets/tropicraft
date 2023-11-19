@@ -1,5 +1,6 @@
 package cookie.tropicraft.world.biome;
 
+import cookie.tropicraft.entity.EntityVervet;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.entity.SpawnListEntry;
 import net.minecraft.core.entity.animal.EntityChicken;
@@ -18,5 +19,6 @@ public class BiomeSavanna extends Biome {
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new SpawnListEntry(EntityPig.class, 21));
 		spawnableCreatureList.add(new SpawnListEntry(EntityChicken.class, 16));
+		spawnableCreatureList.add(new SpawnListEntry(EntityVervet.class, 8));
 	}
 }

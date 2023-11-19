@@ -1,6 +1,7 @@
 package cookie.tropicraft.world;
 
 import cookie.tropicraft.Tropicraft;
+import cookie.tropicraft.block.TropicraftBlocks;
 import cookie.tropicraft.world.biome.TropicraftBiomes;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.biome.provider.BiomeProvider;
@@ -59,6 +60,16 @@ public class WorldTypeTropics extends WorldTypeOverworld {
 
 	@Override
 	public boolean hasAurora() {
+		return false;
+	}
+
+	@Override
+	public boolean isValidSpawn(World world, int x, int y, int z) {
+		return world.getBlockId(x, y, z) == TropicraftBlocks.sandPurified.id;
+	}
+
+	@Override
+	public boolean mayRespawn() {
 		return false;
 	}
 }

@@ -1,3 +1,6 @@
+worldtype.tropicraft.tropics.name=Tropical Paradise
+dimension.tropicraft.tropics.name=The Tropics
+
 tile.tropicraft.bamboo.name=Bamboo
 tile.tropicraft.bamboo.desc=Stout and long.
 tile.tropicraft.log.palm.name=Palm Log
@@ -60,6 +63,9 @@ tile.tropicraft.cactus.tropical.name=Tropical Cactus
 tile.tropicraft.cactus.tropical.desc=A spiky plant that grows in dry forests.
 tile.tropicraft.portal.tropics.name=Tropics Portal
 tile.tropicraft.portal.tropics.desc=A portal to the Tropics.
+
+tile.tropicraft.algae.cranberry.name=Cranberry Plant
+tile.tropicraft.algae.cranberry.desc=A floating plant of Cranberries, it seems to bloom during Summer.
 
 item.tropicraft.bamboo.name=Bamboo
 item.tropicraft.bamboo.desc=Stout and long.

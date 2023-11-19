@@ -46,7 +46,6 @@ public class TropicsInitialization extends BaseInitialization {
 		structureFeatures.addFeature(OverworldFunctions::generateLavaLakeFeature, null);
 		structureFeatures.addFeature(OverworldFunctions::generateRandomFluid, new Object[]{50, Block.fluidWaterFlowing.id});
 		structureFeatures.addFeature(OverworldFunctions::generateRandomFluid, new Object[]{20, Block.fluidLavaFlowing.id});
-		structureFeatures.addFeature(TropicsFunctions::generateEIH, null);
 	}
 
 	@Override
@@ -77,7 +76,8 @@ public class TropicsInitialization extends BaseInitialization {
 		randomFeatures.addFeature(new WorldFeatureIris(), 2, 1);
 		randomFeatures.addFeature(new WorldFeatureFlowers(Block.mushroomBrown.id), 4, 1);
 		randomFeatures.addFeature(new WorldFeatureFlowers(Block.mushroomRed.id), 8, 1);
-		randomFeatures.addFeature(new WorldFeatureVolcano(), 300, -1);
+		randomFeatures.addFeature(new WorldFeatureVolcano(), 900, -1);
+		randomFeatures.addFeature(new WorldFeatureEIH(), 300, -1);
 	}
 
 	@Override

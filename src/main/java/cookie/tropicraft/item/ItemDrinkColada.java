@@ -45,15 +45,16 @@ public class ItemDrinkColada extends ItemDrink {
 		player.dimension = targetDimension;
 		world.setEntityDead(player);
 		player.removed = false;
-		double x = player.x;
-		double z = player.z;
-		player.moveTo(x *= Dimension.getCoordScale(lastDim, newDim), player.y, z *= Dimension.getCoordScale(lastDim, newDim), player.yRot, player.xRot);
+
+		player.moveTo(player.x *= Dimension.getCoordScale(lastDim, newDim), player.y, player.z *= Dimension.getCoordScale(lastDim, newDim), player.yRot, player.xRot);
 		if (player.isAlive()) {
 			world.updateEntityWithOptionalForce(player, false);
 		}
+
 		if (player.isAlive()) {
 			world.updateEntityWithOptionalForce(player, false);
 		}
+
 		world = new World(world, newDim);
 		if (newDim == lastDim.homeDim) {
 			mc.changeWorld(world, "Leaving " + lastDim.getTranslatedName(), player);

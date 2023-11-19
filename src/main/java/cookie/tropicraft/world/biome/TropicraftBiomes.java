@@ -1,14 +1,13 @@
 package cookie.tropicraft.world.biome;
 
 import net.minecraft.core.world.biome.Biome;
-import net.minecraft.core.world.biome.BiomeRainforest;
 import net.minecraft.core.world.biome.Biomes;
 
 public class TropicraftBiomes extends Biomes {
 	public static Biome TROPICS_DRYFOREST = new BiomeDryForest();
 	public static Biome TROPICS_SAVANNA = new BiomeSavanna();
 	public static Biome TROPICS_MARSH = new BiomeMarsh();
-	public static Biome TROPICS_RAINFOREST = new BiomeRainforest();
+	public static Biome TROPICS_RAINFOREST = new BiomeTropicsRainforest();
 	public static Biome TROPICS_VOLCANICPLAINS = new BiomeVolcanicPlains();
 
 	public void initializeBiomes() {
