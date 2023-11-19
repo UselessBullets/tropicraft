@@ -1,5 +1,6 @@
 package cookie.tropicraft.world.feature;
 
+import cookie.tropicraft.block.TropicraftBlocks;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.generate.feature.WorldFeature;
@@ -19,7 +20,7 @@ public class WorldFeatureVolcano extends WorldFeature {
 
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z) {
-		int initialRadius = random.nextInt(10) + 15;
+		int initialRadius = random.nextInt(2) + 15;
 		int endingRadius = Math.max(initialRadius - 5 - random.nextInt(5), initialRadius/2);
 		int height = random.nextInt(30) + 50;
 		int yOffset = -5;
@@ -31,9 +32,14 @@ public class WorldFeatureVolcano extends WorldFeature {
 					if (!blockInCircle(xb, zb, x, z, radius)) continue;
 					boolean inPit = blockInCircle(xb, zb, x, z, endingRadius);
 					world.setBlock(xb, yb + yOffset, zb, inPit ? 0 : Block.basalt.id);
+
+					if (inPit)
+						world.setBlock(xb, yb + yOffset - 35, zb, Block.fluidLavaStill.id);
 				}
 			}
 		}
+
+		world.setBlock(x, y, z, TropicraftBlocks.harris.id);
 		return true;
 	}
 }

@@ -13,6 +13,6 @@ public class BiomeMarsh extends Biome {
 		setFillerBlock(Block.dirt.id);
 
 		spawnableCreatureList.clear();
-		spawnableWaterCreatureList.clear();
+		spawnableMonsterList.clear();
 	}
 }

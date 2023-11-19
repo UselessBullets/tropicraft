@@ -11,5 +11,9 @@ public class BiomeVolcanicPlains extends Biome {
 		setColor(0);
 		setTopBlock(Block.basalt.id);
 		setFillerBlock(Block.basalt.id);
+
+		spawnableAmbientCreatureList.clear();
+		spawnableCreatureList.clear();
+		spawnableMonsterList.clear();
 	}
 }
